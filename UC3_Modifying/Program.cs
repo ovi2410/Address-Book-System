@@ -1,6 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-//Console.WriteLine("Hello, World!");
-using System;
+﻿using System;
 
 namespace AddressBooks
 {
@@ -12,6 +10,7 @@ namespace AddressBooks
 
             Console.WriteLine("Welcome To Address Book System!");
             AddrBook.GetCustomer();
+            AddressBooks.AddrBook.Modify();
             AddrBook.ListingPeople();
 
         }
