@@ -8,8 +8,6 @@ namespace AddressBooks
     {
         static void Main(string[] args)
         {
-
-
             Console.WriteLine("Welcome To Address Book System!");
             Console.WriteLine("1.Enter to add the details");
             Console.WriteLine("2.Enter to modify the details");
