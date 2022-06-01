@@ -1,0 +1,29 @@
+{
+  "exclude": [
+    "**/bin",
+    "**/bower_components",
+    "**/jspm_packages",
+    "**/node_modules",
+    "**/obj",
+    "**/platforms"
+  ]
+
+  {
+    "person info": [
+      {
+        "ContactArray": [],
+        "contact": 0,
+        "stateList": null,
+        "cityList": null,
+        "firstName": "vaidehii",
+        "lastName": "v",
+        "Address": "chennai",
+        "city": "chennai",
+        "state": "TamilNadu",
+        "zip": "600072",
+        "phoneNumber": "9089786756",
+        "email": "srisha@gmail.com"
+      }
+    ]
+  }
+}
