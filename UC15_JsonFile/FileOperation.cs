@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UC14_CsvOperation
+namespace UC15_JsonFile
 {
     class FileOperations
     {
 
-        const string filepath = @"C:\Users\DEEPAK\OneDrive\Desktop\RFP _.NET Fellowship - 142\Address_Book_System\Addressbook\UC14_CsvOperation\DictText.txt";
+        const string filepath = @"C:\Users\DEEPAK\OneDrive\Desktop\RFP _.NET Fellowship - 142\Address_Book_System\Addressbook\UC15_JsonFile\DictText.txt";
 
         //Write content to file
         public static void GetDictionary(Dictionary<string, List<AddrBook>> addressbooknames)
