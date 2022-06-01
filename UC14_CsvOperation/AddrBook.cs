@@ -1,15 +1,16 @@
-﻿using System;
+﻿using AddressBooks;
+using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace AddressBooks
+namespace UC14_CsvOperation
 {
-
     public class AddrBook
     {
-        public List<AddrBook> stateList { get; set; }
-        public List<AddrBook> cityList { get; set; }
+        public List<AddrBook> stateList;
+        public List<AddrBook> cityList;
 
         //instance variables 
         public string firstName { get; set; }
@@ -23,7 +24,19 @@ namespace AddressBooks
         public List<AddrBook> ContactArray;
         public int contact = 0;
 
+        //Parameterised Constructor
+        public AddrBook(string firstName, string lastName, string Address, string city, string state, string zip, string phoneNumber, string email)
+        {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.Address = Address;
+            this.city = city;
+            this.state = state;
+            this.zip = zip;
+            this.phoneNumber = phoneNumber;
+            this.email = email;
 
+        }
         //Default Contructor
         public AddrBook()
         {
@@ -36,21 +49,12 @@ namespace AddressBooks
         //To add Contact to Address Book
         public void CreateContact(string firstName, string lastName, string Address, string city, string state, string zip, string phoneNumber, string email)
         {
-            AddrBook bookSystem = new AddrBook();
-            bookSystem.firstName = firstName;
-            bookSystem.lastName = lastName;
-            bookSystem.Address = Address;
-            bookSystem.city = city;
-            bookSystem.state = state;
-            bookSystem.zip = zip;
-            bookSystem.phoneNumber = phoneNumber;
-            bookSystem.email = email;
-
-
+            AddrBook bookSystem;
 
             //Newly add element to List
-            if (ContactArray.Count == 0)
+            if (contact == 0)
             {
+                bookSystem = new AddrBook(firstName, lastName, Address, city, state, zip, phoneNumber, email);
                 ContactArray.Add(bookSystem);
                 if (Program.State.ContainsKey(state))
                 {
@@ -78,9 +82,9 @@ namespace AddressBooks
                     Program.City.Add(city, cityList);
 
                 }
-
+                contact++;
                 Program obj = new Program();
-                obj.Display(ContactArray, ContactArray.Count);
+                obj.Display(ContactArray, contact);
 
             }
             else if (contact != 0)
@@ -89,7 +93,7 @@ namespace AddressBooks
                 AddrBook addressBookSystems = ContactArray.Find(x => x.firstName.Equals(firstName));
                 if (addressBookSystems == null)
                 {
-
+                    bookSystem = new AddrBook(firstName, lastName, Address, city, state, zip, phoneNumber, email);
                     ContactArray.Add(bookSystem);
                     if (Program.State.ContainsKey(state))
                     {
@@ -117,9 +121,9 @@ namespace AddressBooks
                         Program.City.Add(city, cityList);
 
                     }
-
+                    contact++;
                     Program obj = new Program();
-                    obj.Display(ContactArray, ContactArray.Count);
+                    obj.Display(ContactArray, contact);
                 }
                 else
                 {
@@ -189,7 +193,7 @@ namespace AddressBooks
                 //Delete a user
                 case 9:
                     ContactArray = ContactArray.Take(i).Concat(ContactArray.Skip(i + 1)).ToList();
-
+                    contact--;
                     break;
                 default:
                     Console.WriteLine("Invalid Option");
@@ -197,9 +201,8 @@ namespace AddressBooks
             }
             //Display Function
             Program obj = new Program();
-            obj.Display(ContactArray, ContactArray.Count);
+            obj.Display(ContactArray, contact);
         }
     }
 
 }
-
